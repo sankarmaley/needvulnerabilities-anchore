@@ -6,10 +6,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the container image
-        run: docker build . --file Dockerfile --tag localbuild/testimage:latest
+        run: docker build . --file Dockerfile --tag localbuild/testimage1:latest
       - uses: anchore/scan-action@v3
         with:
-          image: "localbuild/testimage:latest"
+          image: "localbuild/testimage1:latest"
           fail-build: false
       - name: upload Anchore scan SARIF report
         uses: github/codeql-action/upload-sarif@v2
